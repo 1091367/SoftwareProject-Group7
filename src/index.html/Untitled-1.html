@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Food-Waste Redistribution</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 700px; margin: 40px auto; padding: 20px; }
+    .food { border: 1px solid #ccc; border-radius: 8px; padding: 16px; margin: 12px 0; }
+    button { background: #218838; color: white; border: 0; padding: 10px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Smart Food-Waste Redistribution Platform</h1>
+  <p>Available surplus food from local businesses:</p>
+  <div id="food-list"></div>
+
+  <script>
+    const foods = [
+      { name: "Fresh bread", donor: "Local Bakery", quantity: "10 bags" },
+      { name: "Vegetable boxes", donor: "Local Market", quantity: "5 boxes" }
+    ];
+
+    const list = document.getElementById("food-list");
+
+    foods.forEach(food => {
+      const card = document.createElement("div");
+      card.className = "food";
+      card.innerHTML = `
+        <h2>${food.name}</h2>
+        <p>Donor: ${food.donor}</p>
+        <p>Quantity: ${food.quantity}</p>
+        <button type="button">Request food</button>
+      `;
+      card.querySelector("button").addEventListener("click", () => {
+        alert(`Request noted for ${food.name}. This is a prototype.`);
+      });
+      list.appendChild(card);
+    });
+  </script>
+</body>
+</html>
